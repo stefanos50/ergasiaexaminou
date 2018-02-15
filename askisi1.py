@@ -22,3 +22,15 @@ def oari8mosepiloghs(epiloges):
 	noumero = random.choice(epiloges)
 	epiloges.remove(noumero);
 	return noumero
+def elegxosari8mwnpaixtwn(oloi,noumero):
+	for i in range (0,len(oloi)):
+		for j in range(0,len(oloi[i])):
+			if oloi[i][j] == noumero:
+				del oloi[i][j]
+				break
+	return oloi
+def nikitis(oloi):
+	for i in range (0,100):
+		if not oloi[i]:
+			return True
+			break
