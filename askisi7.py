@@ -13,5 +13,5 @@ for i in range (currxronos+1 , currxronos+11):
 		hmka8emhna = datetime.date(i ,j,currday).weekday()
 		if (hmka8emhna == hmeraonoma):
 			sum = sum + 1
-print "O arithmos apo thn mera",hmeres[hmeraonoma],"pou 8a uparxoun stis",currday,"/",currmhnas,"ta epomena 10 xronia einai:"
+print "O arithmos apo thn mera",hmeres[hmeraonoma],"pou 8a uparxoun stis",currday,"tou mhna ta epomena 10 xronia einai:"
 print sum
