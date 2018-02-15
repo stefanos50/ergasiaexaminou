@@ -12,3 +12,13 @@ def epilogespaixtwn():
 				break
 		paixtes.append(z)
 	return paixtes
+def epilogesupologisth(): 
+	epiloges = []
+	for i in range (1,81):
+		epiloges.append(i)
+	shuffle(epiloges)
+	return epiloges
+def oari8mosepiloghs(epiloges): 
+	noumero = random.choice(epiloges)
+	epiloges.remove(noumero);
+	return noumero
