@@ -34,3 +34,20 @@ def nikitis(oloi):
 		if not oloi[i]:
 			return True
 			break
+			
+sum = 0
+for i in range (1000):
+	paixtes = 100 
+	oloi = []
+	epup = epilogesupologisth()
+	for i in range (paixtes):
+		oloi.append(epilogespaixtwn())
+	while True:
+		ar = oari8mosepiloghs(epup)
+		elegxosari8mwnpaixtwn(oloi,ar)
+		elegxos = nikitis(oloi)
+		sum = sum+ 1
+		if elegxos:
+			break
+mesosoros = float(sum)/1000.0
+print "O mesos oros einai:", mesosoros
