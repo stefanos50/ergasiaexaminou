@@ -42,3 +42,26 @@ def deletefileornot ():
 			break
 		elif apantisi == 1:
 			break
+
+def nameexist(a):
+	try:
+		for status in tweepy.Cursor(api.user_timeline,screen_name=a,tweet_mode ='extended').items(1):
+			print "" #if the profile does not exist this for loup will show an error
+		return True
+	except BaseException as e:
+		return False
+		
+consumer_key ="YOUR-CONSUMER-KEY"
+consumer_secret ="YOUR-CONSUMER-SECRET"
+access_token ="YOUR-ACCESS-TOKEN"
+access_secret ="YOUR-ACCESS-SECRET"
+
+auth = OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_secret)
+api = tweepy.API(auth)
+while True:
+	usern = raw_input("Give a twitter profil name without the @:");
+	if nameexist(usern):
+		break
+	else:
+		print "The twitter profile name does not exist please try again"
