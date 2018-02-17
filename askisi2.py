@@ -58,7 +58,6 @@ for i in range (31):
 		telikoplh8os += euresiomoiwn(epiloges,temp)
 	plh8osephm.append(telikoplh8os) #h lista periexei ton ari8mo epituxiwn gia ka8e mera
 max = max(plh8osephm)
-thesi = 0
 for i in range (len(plh8osephm)): 
 	if plh8osephm[i] == max:
 		teliki = twrinhhmeromtel - datetime.timedelta(days=i) 
