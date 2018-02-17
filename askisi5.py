@@ -65,3 +65,27 @@ while True:
 		break
 	else:
 		print "The twitter profile name does not exist please try again"
+	
+sum=0;
+for status in tweepy.Cursor(api.user_timeline,screen_name=usern,tweet_mode ='extended').items():
+	sum += 1 #Counting if the profile have at least 10 tweets in the profile
+	if sum==10: #if the num is <10 then it will count only them 
+		break;
+for i in range (1,sum+1):
+	for status in tweepy.Cursor(api.user_timeline,screen_name=usern,tweet_mode ='extended').items(i):
+		writetweetstoajsfile(status,usern+'.json',)
+	readtweetsfromjsfile(usern+'.json',i)
+allwords = []
+for i in range (0,sum):
+	for j in range (0 , len(tweetsli[i])):
+		if is_ascii(tweetsli[i][j]):
+			if not tweetsli[i][j].isdigit():
+				if len(tweetsli[i][j]) != 1:
+					allwords.append(tweetsli[i][j])
+metritis = Counter(allwords)
+print metritis.most_common(1)
+for value, count in metritis.most_common(1):
+	print"The most famous word of the user is:",value
+	print"Showed:",count,"times"
+print"------------"
+deletefileornot()
