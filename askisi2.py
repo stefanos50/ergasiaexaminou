@@ -13,15 +13,27 @@ def euresiomoiwn(x,y):
 		plh8os +=1
 	return plh8os
 
+def isthereanychar(epil):
+	try:
+		for i in range (10):
+			int(epiloges[i])
+		return True
+	except ValueError:
+		return False
+
 plh8osephm = []
 while True:
 	flag = True
 	x = raw_input("dwste 10  ari8mous me , anamesa tous :")	
 	epiloges = x.split(",")
 	if len(epiloges)==10:
+		flag2 = isthereanychar(epiloges)
 		for i in xrange(10):
-			epiloges[i]=int(epiloges[i])
+			if flag2 == True:
+				epiloges[i]=int(epiloges[i])
 		for i in range(0,8):
+			if flag2 == False:
+				break
 			for j in range(i+1,10):
 				if epiloges[i] == epiloges[j]:
 					flag = False
@@ -30,10 +42,15 @@ while True:
 			if flag==False:
 				break
 		for i in range (0,10):
+			if flag2 == False:
+				break
 			if epiloges[i]>80 or epiloges[i]<1:
 				flag = False
 				print 'oi ari8moi prepei na einai apo to 1-80'
-		if flag:
+				break
+		if not flag2:
+			print "prepei na periexontai mono ari8moi kai oxi xarakthres h keno"
+		if flag and flag2:
 			break
 	else:
 		print 'oi ari8moi prepei na einai 10'
