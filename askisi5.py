@@ -46,10 +46,17 @@ def deletefileornot ():
 def nameexist(a):
 	try:
 		for status in tweepy.Cursor(api.user_timeline,screen_name=a,tweet_mode ='extended').items(1):
-			print "" #if the profile does not exist this for loup will show an error
+			pass #if the profile does not exist this for loup will show an error
 		return True
 	except BaseException as e:
 		return False
+def keyscheck():
+	try:
+		for status in tweepy.Cursor(api.home_timeline).items(1):
+			pass
+	except BaseException as e:
+		print"some of the keys are invalid try again...ending the programm"
+		quit()
 		
 consumer_key ="YOUR-CONSUMER-KEY"
 consumer_secret ="YOUR-CONSUMER-SECRET"
@@ -59,6 +66,7 @@ access_secret ="YOUR-ACCESS-SECRET"
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
 api = tweepy.API(auth)
+keyscheck() #without this check if the keys were wrong the while loup will never end and it will ask for a name even if it is valid
 while True:
 	usern = raw_input("Give a twitter profil name without the @:");
 	if nameexist(usern):
@@ -78,9 +86,9 @@ for i in range (1,sum+1):
 allwords = []
 for i in range (0,sum):
 	for j in range (0 , len(tweetsli[i])):
-		if is_ascii(tweetsli[i][j]):
-			if not tweetsli[i][j].isdigit():
-				if len(tweetsli[i][j]) != 1:
+		if is_ascii(tweetsli[i][j]): #removing emoji
+			if not tweetsli[i][j].isdigit(): #removing single numbers
+				if len(tweetsli[i][j]) != 1: #removing single letters
 					allwords.append(tweetsli[i][j])
 metritis = Counter(allwords)
 print metritis.most_common(1)
